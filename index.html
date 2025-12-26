@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Cash y Calma — Ropa & Estilo</title>
-  <meta name="description" content="Sitio oficial de Cash Y Calma: drops, camisetas y streetwear." />
+  <meta name="description" content="Sitio oficial de Tu Marca: drops, camisetas y streetwear." />
   <style>
     :root{
       --bg:#0b0b10;
       --card:#12121a;
       --text:#f5f5f7;
       --muted:#b9b9c6;
-      --brand:#8b5cf6; /* morado */
+      --brand:#8b5cf6;
       --brand2:#a78bfa;
       --line:rgba(255,255,255,.10);
       --shadow: 0 16px 40px rgba(0,0,0,.45);
@@ -196,19 +196,6 @@
     .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
     .list li{margin:8px 0}
 
-    /* Contact */
-    form{display:grid; gap:10px}
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-      outline:none;
-    }
-    input:focus, textarea:focus{border-color: rgba(139,92,246,.65)}
-    textarea{min-height:110px; resize:vertical}
     .footer{
       padding:26px 0 34px;
       color:var(--muted);
@@ -230,6 +217,71 @@
       .mobile-menu a{display:block; padding:10px 0; color:var(--muted)}
       .mobile-menu a:hover{color:var(--text)}
       .mobile-menu.show{display:block}
+    }
+
+    /* ====== LIGHTBOX (expandir imagen) ====== */
+    .zoomable{ cursor: zoom-in; }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(0,0,0,.85);
+      backdrop-filter: blur(6px);
+    }
+    .lightbox.show{ display:flex; }
+
+    .lightbox-inner{
+      position:relative;
+      width:min(980px, 96vw);
+      max-height:90vh;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(18,18,26,.55);
+      overflow:hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    }
+
+    .lightbox-img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:90vh;
+      object-fit:contain;
+      background:#000;
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:10px;
+      right:10px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(0,0,0,.55);
+      color:#fff;
+      border-radius:12px;
+      padding:10px 12px;
+      cursor:pointer;
+      font-weight:800;
+    }
+    .lightbox-close:hover{
+      border-color:rgba(139,92,246,.55);
+      background:rgba(0,0,0,.7);
+    }
+
+    .lightbox-hint{
+      position:absolute;
+      left:12px;
+      bottom:10px;
+      color:rgba(255,255,255,.75);
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.35);
     }
   </style>
 </head>
@@ -288,15 +340,11 @@
           <div class="mock">
             <div class="mock-inner">
               <img
+                class="zoomable"
+                data-full="https://drive.google.com/thumbnail?id=1aYYEZ9ZUdZ32887mrZVzuuv7nWKExIX_&sz=w2000"
                 src="https://drive.google.com/thumbnail?id=1aYYEZ9ZUdZ32887mrZVzuuv7nWKExIX_&sz=w1200"
                 alt="Cash y Calma Hero Image"
-                style="
-                  width:200%;
-                  height:200%;
-                  object-fit:contain;
-                  display:block;
-                  margin-right:25px;
-                "
+                style="width:200%; height:200%; object-fit:contain; display:block; margin-right:25px;"
               />
             </div>
           </div>
@@ -346,17 +394,10 @@
 
       <!-- Producto 1 -->
       <article class="card prod">
-        <div class="prod-img" style="
-          height:180px;
-          width:100%;
-          overflow:hidden;
-          border-radius:16px;
-          background:#000;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-        ">
+        <div class="prod-img" style="height:180px;width:100%;overflow:hidden;border-radius:16px;background:#000;display:flex;align-items:center;justify-content:center;">
           <img
+            class="zoomable"
+            data-full="https://drive.google.com/thumbnail?id=1UwezS1RciyGim9bImVMPDhBWX_6xdClD&sz=w2000"
             src="https://drive.google.com/thumbnail?id=1UwezS1RciyGim9bImVMPDhBWX_6xdClD&sz=w1000"
             alt="Camiseta MIDNIGHT PURPLE"
             style="width:85%; height:85%; object-fit:contain; display:block;"
@@ -379,17 +420,10 @@
 
       <!-- Producto 2 -->
       <article class="card prod" style="margin-top:16px">
-        <div class="prod-img" style="
-          height:180px;
-          width:100%;
-          overflow:hidden;
-          border-radius:16px;
-          background:#000;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-        ">
+        <div class="prod-img" style="height:180px;width:100%;overflow:hidden;border-radius:16px;background:#000;display:flex;align-items:center;justify-content:center;">
           <img
+            class="zoomable"
+            data-full="https://drive.google.com/thumbnail?id=1iLmTyuSHjO4hNrmV2s0r_Hq3rDfKL7Th&sz=w2000"
             src="https://drive.google.com/thumbnail?id=1iLmTyuSHjO4hNrmV2s0r_Hq3rDfKL7Th&sz=w1200"
             alt="Camiseta CALMA MODE"
             style="width:85%; height:85%; object-fit:contain; display:block;"
@@ -412,17 +446,10 @@
 
       <!-- Producto 3 -->
       <article class="card prod" style="margin-top:16px">
-        <div class="prod-img" style="
-          height:180px;
-          width:100%;
-          overflow:hidden;
-          border-radius:16px;
-          background:#000;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-        ">
+        <div class="prod-img" style="height:180px;width:100%;overflow:hidden;border-radius:16px;background:#000;display:flex;align-items:center;justify-content:center;">
           <img
+            class="zoomable"
+            data-full="https://drive.google.com/thumbnail?id=14PwAsWKAQvFK-bglANYurE-STuLK7V8M&sz=w2000"
             src="https://drive.google.com/thumbnail?id=14PwAsWKAQvFK-bglANYurE-STuLK7V8M&sz=w1000"
             alt="Hoodie"
             style="width:85%; height:85%; object-fit:contain; display:block;"
@@ -495,16 +522,7 @@
              target="_blank"
              rel="noopener"
              aria-label="Instagram Cash y Calma"
-             style="
-               display:inline-flex;
-               align-items:center;
-               justify-content:center;
-               width:100px;
-               height:100px;
-               border-radius:12px;
-               border:1px solid rgba(255,255,255,.15);
-               transition:.2s;
-             "
+             style="display:inline-flex;align-items:center;justify-content:center;width:100px;height:100px;border-radius:12px;border:1px solid rgba(255,255,255,.15);transition:.2s;"
              onmouseover="this.style.borderColor='#8b5cf6'"
              onmouseout="this.style.borderColor='rgba(255,255,255,.15)'"
           >
@@ -528,6 +546,15 @@
       </div>
     </div>
   </main>
+
+  <!-- LIGHTBOX (expandir imagen) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar">✕</button>
+      <img id="lightboxImg" class="lightbox-img" alt="Imagen ampliada" />
+      <div class="lightbox-hint">Click afuera o ESC para cerrar</div>
+    </div>
+  </div>
 
   <script>
     // --- menú móvil
@@ -575,12 +602,12 @@
     renderCart();
 
     window.checkout = function(){
-      alert("Se habilitara próximamente.");
+      alert("Checkout (demo). Para vender de verdad: conecta Stripe/Shopify o un backend.");
     }
   </script>
 
   <script>
-    // --- Próximo drop: próximo mes (sin romper nada)
+    // --- Próximo drop: próximo mes
     const meses = [
       "Enero","Febrero","Marzo","Abril","Mayo","Junio",
       "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
@@ -603,7 +630,53 @@
     }
   </script>
 
+  <script>
+    // ====== LIGHTBOX JS (expandir imagen) ======
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    function openLightbox(src, alt){
+      if (!lightbox || !lightboxImg) return;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "Imagen ampliada";
+      lightbox.classList.add("show");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(){
+      if (!lightbox || !lightboxImg) return;
+      lightbox.classList.remove("show");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    // Click en cualquier imagen con class="zoomable"
+    document.addEventListener("click", (e) => {
+      const img = e.target.closest("img.zoomable");
+      if (!img) return;
+      const full = img.getAttribute("data-full") || img.src;
+      openLightbox(full, img.alt);
+    });
+
+    // Cerrar con botón
+    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+
+    // Cerrar clickeando fuera del cuadro
+    if (lightbox) {
+      lightbox.addEventListener("click", (e) => {
+        const inner = e.target.closest(".lightbox-inner");
+        if (!inner) closeLightbox();
+      });
+    }
+
+    // Cerrar con ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+
 </body>
 </html>
-
-
